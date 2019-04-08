@@ -3,7 +3,7 @@ import speech_recognition as sr
 from urllib.request import FancyURLopener
 import pyttsx3
 import requests
-
+import threading
 
 def typeCommand():
     inp = input("ME :")
@@ -32,6 +32,11 @@ def speak(s,audio):
         except:
             engine.stop()
 
+def talkToMe(audio):
+    "speaks audio passed as argument"
+    t = threading.Thread(target= speak, name="thread1", args= (0,audio))
+    t.start()
+
 
 def myCommand():
     "listens for commands"
@@ -58,16 +63,23 @@ def myCommand():
         print("No Internet connection bye")
         talkToMe("No Internet connection bye")
         sys.exit()
-
-    
     return command
 
 
 def assistant(command):
-    print(command)
+    if 'stop' in command:
+        #engine.stop()
+        talkToMe(command)
+    else:
+        talkToMe(command)
+        #print(command)
+
+
+
+
 
 def start():
     while True:
-        assistant(myCommand())
-        #assistant(typeCommand())
+        #assistant(myCommand())
+        assistant(typeCommand())
 start()
