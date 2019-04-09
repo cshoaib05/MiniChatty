@@ -66,7 +66,9 @@ def myCommand():
     return command
 
 
-def assistant(command):
+def assistant(command1):
+    command=command1.replace('zero',"")
+    print(command)
     if 'stop' in command:
         #engine.stop()
         talkToMe(command)
@@ -76,10 +78,19 @@ def assistant(command):
 
 
 
-
-
 def start():
     while True:
         #assistant(myCommand())
         assistant(typeCommand())
-start()
+
+def hotword():
+    #a = myCommand()
+    a=typeCommand()
+    if 'zero' in a:
+        assistant(a)
+
+
+
+while True:
+    hotword()
+# start()
