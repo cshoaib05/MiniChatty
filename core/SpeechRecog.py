@@ -11,9 +11,15 @@ def typeCommand():
 
 
 def speak(s,audio):
-    import pythoncom
-    pythoncom.CoInitialize()
-    print("Asistnt: "+audio)
+    try:
+        import pythoncom
+        pythoncom.CoInitialize()
+        print("Asistnt: "+audio)
+    except:
+        print("Asistnt: "+audio)
+        
+ 
+"""
     try:
         engine = pyttsx3.init()
         rate = engine.getProperty('rate')
@@ -36,6 +42,8 @@ def talkToMe(audio):
     "speaks audio passed as argument"
     t = threading.Thread(target= speak, name="thread1", args= (0,audio))
     t.start()
+    
+    """
 
 
 def myCommand():
