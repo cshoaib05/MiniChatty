@@ -1,6 +1,6 @@
 # Takes Type input
-def typeCommand():
-    command = input("USER :")
+def typeCommand(command):
+    #command = input("USER :")
     check = command.startswith('zero')
     if check:
         command1 = command.replace('zero',"")

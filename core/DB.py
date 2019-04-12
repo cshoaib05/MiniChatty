@@ -5,7 +5,7 @@ from string import punctuation
 from math import sqrt
 import difflib
 
-connection = sqlite3.connect('chatbot.sqlite')
+connection = sqlite3.connect('chatbot.sqlite', check_same_thread=False)
 cursor = connection.cursor()
 
 # create the tables needed by the program

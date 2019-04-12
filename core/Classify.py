@@ -1,13 +1,13 @@
-import Listen
-import APIs
-import DB
+from . import Listen
+from . import APIs
+from . import DB
 import sys
-import SentimentAnalysis
+from . import SentimentAnalysis
 from nltk.tokenize import sent_tokenize, word_tokenize
 
-def classifyCommand():
+def classifyCommand(command):
     # Tokenize string of sentences into list of sentences
-    commands = sent_tokenize(Listen.typeCommand())
+    commands = sent_tokenize(Listen.typeCommand(command))
     print(commands)
     #commands = Listen.typeCommand()
     #print(commands)
@@ -19,6 +19,7 @@ def classifyCommand():
         # print(questions[i]," : " ,answers[i])
         # print("")
         print("BOT:"+ str(answers[i]))
+        return("BOT:"+ str(answers[i]))
         print("")
         
 
@@ -74,8 +75,11 @@ def processCommands(commands):
                 
     return commands,replies
         
-while(True):
-    classifyCommand()
+
+if __name__ == "__main__":
+    pass
+    while(True):
+        classifyCommand(command)
 
 
 
