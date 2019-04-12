@@ -19,6 +19,7 @@ def classifyCommand():
         # print(questions[i]," : " ,answers[i])
         # print("")
         print("BOT:"+ str(answers[i]))
+        Listen.talkToMe(str([answers[i]]))
         print("")
         
 
