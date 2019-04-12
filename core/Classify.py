@@ -20,11 +20,10 @@ def classifyCommand(command):
         # print("")
         print("BOT:"+ str(answers[i]))
         return("BOT:"+ str(answers[i]))
-        print("")
-        
+
 
 def processCommands(commands):
-    
+
     interogate_words = ['?', 'which', 'what', 'whose ', 'who', 'whom', 'where', 'when', 'how', 'why', 'whether']
     greeting_words = ['hello', 'hi', 'hey', 'good']
     self_words = ['you', 'your', 'yours']
@@ -32,7 +31,7 @@ def processCommands(commands):
 
     # for command in commands:
     #     command = command.lower()
-        
+
 
     ## CHECK IN DATABASE
     # command = commands
@@ -46,9 +45,9 @@ def processCommands(commands):
             replies += [str(db_return) + "(FROM DATABASE)"]
         elif command=='x':
             sys.exit()
-        
+
         elif any(word in command for word in self_words):
-            
+
             #check if its personal + interogative
             if any(word in command for word in interogate_words):
                 #replies += ["Asking personal Questions"]
@@ -72,12 +71,11 @@ def processCommands(commands):
                 print(questions[i]," : " ,answers[i])
             except:
                 replies += [APIs.wolf(command) ]
-                
+
     return commands,replies
-        
+
 
 if __name__ == "__main__":
-    pass
     while(True):
         classifyCommand(command)
 

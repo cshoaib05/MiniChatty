@@ -19,7 +19,7 @@ def speak(s,audio):
         print("Asistnt: "+audio)
         
  
-"""
+
     try:
         engine = pyttsx3.init()
         rate = engine.getProperty('rate')
@@ -43,7 +43,7 @@ def talkToMe(audio):
     t = threading.Thread(target= speak, name="thread1", args= (0,audio))
     t.start()
     
-    """
+    
 
 
 def myCommand():

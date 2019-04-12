@@ -25,9 +25,9 @@ def check_DB(command):
     question_rows = cursor.fetchall()
     cursor.execute("SELECT answer,id FROM chatHistory ORDER BY id")
     answer_rows = cursor.fetchall()
-    
+
     #print(question_rows, answer_rows)
-    
+
     for i,row in enumerate(question_rows):
         for each_row in row:
             sequence = difflib.SequenceMatcher(isjunk=None,a=str(each_row),b=command)
@@ -38,7 +38,7 @@ def check_DB(command):
                 return answer_rows[i]
                 #return "Yes"
 
-    
+
 def insert_DB(H,B):
     for i in range(len(H)):
         try:
@@ -47,4 +47,4 @@ def insert_DB(H,B):
             pass
     connection.commit()
     return
-    
+
