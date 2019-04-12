@@ -72,7 +72,7 @@ def assistant(command1):
     if 'stop' in command:
         #engine.stop()
         talkToMe(command)
-    else:
+    else:   
         talkToMe(command)
         #print(command)
 
