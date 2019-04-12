@@ -1,13 +1,13 @@
-import Listen
-import APIs
-import DB
+from . import Listen
+from . import APIs
+from . import DB
 import sys
-import SentimentAnalysis
+from . import SentimentAnalysis
 from nltk.tokenize import sent_tokenize, word_tokenize
 
-def classifyCommand():
+def classifyCommand(command):
     # Tokenize string of sentences into list of sentences
-    commands = sent_tokenize(Listen.typeCommand())
+    commands = sent_tokenize(Listen.typeCommand(command))
     print(commands)
     #commands = Listen.typeCommand()
     #print(commands)
@@ -19,12 +19,11 @@ def classifyCommand():
         # print(questions[i]," : " ,answers[i])
         # print("")
         print("BOT:"+ str(answers[i]))
-        Listen.talkToMe(str([answers[i]]))
-        print("")
-        
+        return("BOT:"+ str(answers[i]))
+
 
 def processCommands(commands):
-    
+
     interogate_words = ['?', 'which', 'what', 'whose ', 'who', 'whom', 'where', 'when', 'how', 'why', 'whether']
     greeting_words = ['hello', 'hi', 'hey', 'good']
     self_words = ['you', 'your', 'yours']
@@ -32,7 +31,7 @@ def processCommands(commands):
 
     # for command in commands:
     #     command = command.lower()
-        
+
 
     ## CHECK IN DATABASE
     # command = commands
@@ -46,9 +45,9 @@ def processCommands(commands):
             replies += [str(db_return) + "(FROM DATABASE)"]
         elif command=='x':
             sys.exit()
-        
+
         elif any(word in command for word in self_words):
-            
+
             #check if its personal + interogative
             if any(word in command for word in interogate_words):
                 #replies += ["Asking personal Questions"]
@@ -72,11 +71,13 @@ def processCommands(commands):
                 print(questions[i]," : " ,answers[i])
             except:
                 replies += [APIs.wolf(command) ]
-                
+
     return commands,replies
-        
-while(True):
-    classifyCommand()
+
+
+if __name__ == "__main__":
+    while(True):
+        classifyCommand(command)
 
 
 

@@ -6,22 +6,16 @@ import requests
 import threading
 
 # Takes Type input
-def typeCommand():
-    command = input("USER :")
-    
-    if 'stop' in command:
-        talkToMe(command)
-        
-    if 'exit' in command:
-        import sys
-        sys.exit()
-        
+def typeCommand(command):
+    #command = input("USER :")
     check = command.startswith('zero')
     if check:
         command1 = command.replace('zero',"")
         return command1
     else:
         return ""
+
+
 
 
 def speak(s,audio):
@@ -31,8 +25,8 @@ def speak(s,audio):
         print("Asistnt: "+audio)
     except:
         print("Asistnt: "+audio)
-        
- 
+
+
 
     try:
         engine = pyttsx3.init()
@@ -56,8 +50,8 @@ def talkToMe(audio):
     "speaks audio passed as argument"
     t = threading.Thread(target= speak, name="thread1", args= (0,audio))
     t.start()
-    
-    
+
+
 # Takes Vice input
 def voiceCommand():
     #"listens for commands"
