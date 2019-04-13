@@ -19,6 +19,7 @@ def index():
             # print(question)
 
             replied_answer = {
+                'user_question' : question,
                 'question': answer
             }
             
