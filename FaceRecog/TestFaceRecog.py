@@ -89,25 +89,9 @@ def draw_text(img, text, x, y):
     cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_PLAIN, 1.5, (0, 255, 0), 2)
 
 
-def predict(test_img):
-    img = test_img.copy()
-    face, rect = detect_face(img)
-
-    label, confidence = face_recognizer.predict(face)
-    label_text = subjects[label]
-
-    draw_rectangle(img, rect)
-    draw_text(img, label_text, rect[0], rect[1]-5)
-    print(confidence)
-
-    return img
-
-
-
-
-face_cascade= cv2.CascadeClassifier('data\\haarcascade_frontalface_alt2.xml')
-cap = cv2.VideoCapture(0)
-while(True):
+def takephoto():
+    face_cascade= cv2.CascadeClassifier('data\\haarcascade_frontalface_alt2.xml')
+    cap = cv2.VideoCapture(0)
     ret,frame = cap.read()
     gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
     faces= face_cascade.detectMultiScale(gray,scaleFactor=1.5,minNeighbors=5)
@@ -122,47 +106,34 @@ while(True):
     print("Predicting images...")
     test_img1 = cv2.imread("my_img.png")
     predicted_img1 = predict(test_img1)
-    cv2.imshow("Test1", cv2.resize(predicted_img1, (400, 500)))
-    time.sleep(5)
-    cv2.waitKey(0)
+    # cv2.imshow("Test1", cv2.resize(predicted_img1, (400, 500)))
+    # time.sleep(5)
+    # cv2.waitKey(0)
     cv2.destroyAllWindows()
-    print("aftersleep")
-    if cv2.waitKey(20) & 0xFF == ord('q'):
-        break
+    # print("aftersleep")
+    # if cv2.waitKey(20) & 0xFF == ord('q'):
+    #     break
 
-cap.release()
-cv2.destroyAllWindows()
-
-
-
-# test_img1 = cv2.imread("test-data/test1.png")
-# test_img2 = cv2.imread("test-data/test2.png")
-# test_img3 = cv2.imread("test-data/test3.png")
-# test_img4 = cv2.imread("test-data/test4.png")
-# test_img5 = cv2.imread("test-data/test5.png")
-# test_img6 = cv2.imread("test-data/test6.png")
-
-# predicted_img1 = predict(test_img1)
-# predicted_img2 = predict(test_img2)
-# predicted_img3 = predict(test_img3)
-# predicted_img4 = predict(test_img4)
-# predicted_img5 = predict(test_img5)
-# predicted_img6 = predict(test_img6)
+    cap.release()
+    cv2.destroyAllWindows()
 
 
-# print("Prediction complete")
+def predict(test_img):
+    try:
+        img = test_img.copy()
+        face, rect = detect_face(img)
 
-# cv2.imshow("Test1", cv2.resize(predicted_img1, (400, 500)))
-# cv2.imshow("Test2", cv2.resize(predicted_img2, (400, 500)))
-# cv2.imshow("Test3", cv2.resize(predicted_img3, (400, 500)))
-# cv2.imshow("Test4", cv2.resize(predicted_img4, (400, 500)))
-# cv2.imshow("Test5", cv2.resize(predicted_img5, (400, 500)))
-# cv2.imshow("Test6", cv2.resize(predicted_img6, (400, 500)))
+        label, confidence = face_recognizer.predict(face)
+        label_text = subjects[label]
+        print('hello' + label_text)
+        # draw_rectangle(img, rect)
+        # draw_text(img, label_text, rect[0], rect[1]-5)
+        # print(confidence)
 
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
-# cv2.waitKey(1)
-# cv2.destroyAllWindows()
+        return img
+    except:
+        takephoto()
 
 
 
+takephoto()
