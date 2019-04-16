@@ -7,6 +7,7 @@ subjects = ["", "Shoaib", "Rizwan"]
 
 
 def detect_face(img):
+    
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     face_cascade = cv2.CascadeClassifier('opencv-files/lbpcascade_frontalface.xml')
