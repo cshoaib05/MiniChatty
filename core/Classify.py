@@ -19,7 +19,8 @@ def classifyCommand(command):
         # print(questions[i]," : " ,answers[i])
         # print("")
         print("BOT:"+ str(answers[i]))
-        return("BOT:"+ str(answers[i]))
+        #return("BOT:"+ str(answers[i]))
+        return(str(answers[i]))
 
 
 def processCommands(commands):
@@ -42,7 +43,9 @@ def processCommands(commands):
         db_return = DB.check_DB(command)
         if(db_return!=None):
             #return [command],[db_return]
-            replies += [str(db_return) + "(FROM DATABASE)"]
+            #replies += [str(db_return) + "(FROM DATABASE)"]
+            replies += [str(db_return)]
+
         elif command=='x':
             sys.exit()
 
