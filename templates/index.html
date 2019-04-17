@@ -33,11 +33,28 @@
 		
 
 			{% if request.method == 'POST' %}
+			<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						{% for reply in replied_answer %}
+							{{ replied_answer }}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			{% endif %}
+
+
+
+
+
+			{% if request.method == 'POST' %}
 
 			<div class="container">
 					<div class="row mt-5">
 						<div class="col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-12 comments-main pt-4 rounded">
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 							 {% for reply in replied_answer %}
 								
@@ -123,6 +140,8 @@
 								</li>
 							</ul>
 =======
+=======
+>>>>>>> bfa708f07ee75175fc3f59908b48a6a75e2019a4
 
 
 							
@@ -130,10 +149,13 @@
 								{% for key, value in reply.items() %}
 
 								
+<<<<<<< HEAD
 >>>>>>> 6e536bd2d79d74ce94f9d29b387dea779ca9fbce
+=======
+>>>>>>> bfa708f07ee75175fc3f59908b48a6a75e2019a4
 
 								
-<!-- 			
+			
 								<ul class="p-0">
 									<li>
 										<div class="row comments mb-2">
@@ -141,19 +163,23 @@
 												<img id="profile-photo" src="http://nicesnippets.com/demo/man02.png" class="rounded-circle" />
 											</div>
 											<div class="col-md-7 col-sm-7 col-8 comment rounded mb-2">
-												<h4 class="m-0"><a href="#">Bot</a></h4>
+												<h4 class="m-0"><a href="#">Steve Alex</a></h4>
 												<time class="text-white ml-3">1 week ago</time>
 												<like></like>
+<<<<<<< HEAD
 <<<<<<< HEAD
 												<p class="mb-0 text-white">{{ replied_answer['question'] }}</p>
 =======
 												<p class="mb-0 text-white">{{ key }}</p>
 >>>>>>> 6e536bd2d79d74ce94f9d29b387dea779ca9fbce
+=======
+												<p class="mb-0 text-white">{{ key }}</p>
+>>>>>>> bfa708f07ee75175fc3f59908b48a6a75e2019a4
 											</div>
 										</div>
 									</li>
 								</ul>
-							</ul> -->
+							</ul>
 
 
 							<ul class="p-0">
@@ -175,14 +201,20 @@
 
 							{% endfor %}
 <<<<<<< HEAD
+<<<<<<< HEAD
 							{% endif %}
 =======
+=======
+>>>>>>> bfa708f07ee75175fc3f59908b48a6a75e2019a4
 							{% endfor %}
 
 
 			
 			{% endif %}
+<<<<<<< HEAD
 >>>>>>> 6e536bd2d79d74ce94f9d29b387dea779ca9fbce
+=======
+>>>>>>> bfa708f07ee75175fc3f59908b48a6a75e2019a4
 			
 							
 							<div class="row comment-box-main p-3 rounded-bottom">
@@ -203,6 +235,18 @@
 						</div>
 					</div>
 				</div>
+
+
+
+
+
+
+
+
+
+
+
+
 	</body>
 
 
