@@ -293,6 +293,7 @@ form textarea {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  overflow: scroll;
   *zoom: 1; }
   .container:after {
     content: " ";
@@ -308,7 +309,8 @@ form textarea {
       width: 970px; } }
   @media (min-width: 1200px) {
     .container {
-      width: 1170px; } }
+      width: 1170px; 
+      overflow: scroll;} }
 
 .container-fluid {
   margin-right: auto;
@@ -1744,6 +1746,8 @@ form textarea {
       }
       .comments-main{
         background: #FFF;
+        overflow: scroll;
+        height: 550px;
       }
       .comment time, .comment:hover time,.icon-rocknroll, .like-count {
         -webkit-transition: .25s opacity linear;
