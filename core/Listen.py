@@ -4,6 +4,7 @@ from urllib.request import FancyURLopener
 import pyttsx3
 import requests
 import threading
+import sys
 
 # Takes Type input
 def typeCommand(command):

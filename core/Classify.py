@@ -18,9 +18,41 @@ def classifyCommand(command):
     for i in range(len(answers)):
         # print(questions[i]," : " ,answers[i])
         # print("")
-        print("BOT:"+ str(answers[i]))
+        # print("BOT:"+ str(answers[i]))
         #return("BOT:"+ str(answers[i]))
         return(str(answers[i]))
+
+
+def classifyListenCommand():
+
+    Listen.talkToMe("I am Listening ")
+
+    while True:
+        # Tokenize string of sentences into list of sentences
+        commands = sent_tokenize(Listen.voiceCommand())
+        print("commands", str(commands))
+
+        if "stop" in commands:
+            print("in If")
+            return("", "")
+
+        #commands = Listen.typeCommand()
+        #print(commands)
+        elif "zero" in str(commands):
+            questions, answers = processCommands(commands)
+            Listen.talkToMe(str(answers))
+            # INSERT NEW QUESTiON in DB
+            DB.insert_DB(questions, answers)
+
+        else:
+            pass
+
+    # for i in range(len(answers)):
+    #     # print(questions[i]," : " ,answers[i])
+    #     # print("")
+    #     # print("BOT:"+ str(answers[i]))
+    #     #return("BOT:"+ str(answers[i]))
+    #     return(commands, str(answers[i]))
 
 
 def processCommands(commands):
@@ -40,6 +72,7 @@ def processCommands(commands):
     # Check if its personal
 
     for command in commands:
+        command = command.replace('zero','')
         db_return = DB.check_DB(command)
         if(db_return!=None):
             #return [command],[db_return]
