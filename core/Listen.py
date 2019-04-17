@@ -5,6 +5,7 @@ import pyttsx3
 import requests
 import threading
 
+
 # Takes Type input
 def typeCommand(command):
     #command = input("USER :")
@@ -54,6 +55,7 @@ def talkToMe(audio):
 
 # Takes Vice input
 def voiceCommand():
+    print("voice command start")
     #"listens for commands"
     r = sr.Recognizer()
 
@@ -73,7 +75,7 @@ def voiceCommand():
         #print('Your last command couldn\'t be heard')
         #talkToMe("missed your words")
         print("missed your words")
-        command = myCommand();
+        command = voiceCommand();
     except:
         print("No Internet connection bye")
         talkToMe("No Internet connection bye")
