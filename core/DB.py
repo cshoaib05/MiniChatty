@@ -34,7 +34,7 @@ def check_DB(command):
             differnce = sequence.ratio()*100
             difference = round(differnce,1)
             #print(difference)
-            if(difference>=85):
+            if(difference>=95):
                 return answer_rows[i]
                 #return "Yes"
 

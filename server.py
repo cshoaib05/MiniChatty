@@ -13,27 +13,47 @@ import requests
 import threading
 
 
+
+question_list = []
+answer_list = []
+
+
+qandalist = []
+
+    
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
+   
+
     if request.method == 'POST':
 
         if request.form['question'] != 'NULL':
-
+            qanda = {}
             question = request.form['question']
+
+            question_list.append(question)
 
             answer = Classify.classifyCommand(question)
             # print(question)
+            answer_list.append(answer)
+
+            qanda.update({question:answer})
+            
 
             replied_answer = {
-                'user_question': question,
-                'question': answer
+                'user_question': question_list,
+                'question': answer_list
             }
 
-            return render_template('index.html', replied_answer=replied_answer)
+            print(qandalist)
+        qandalist.append(qanda)
+        
+
+        return render_template('index.html', qanda=qandalist)
     else:
 
         return render_template('index.html')

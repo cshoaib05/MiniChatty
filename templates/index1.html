@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Voicebot</title>
+    <link type="text/css" href="https://fontsgoogleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <link rel="icon" href="i/favicon.png" type="image/x-icon" />
+    <script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
+    <script type="text/javascript" src="app2.js"></script>
+    <meta name="viewport" content="width=device-width" />
+
+
+
+
+<script id="gs-sdk" src='//www.buildquickbots.com/botwidget/v2/demo/static/js/sdk.js?v=2' 
+key="84b1cd9c-b9d4-4a77-8fea-273c2720c6d9" ></script>
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+	
+	<link rel="stylesheet" href="../static/assets/css/style.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+
+	</head>
+
+
+	<body>
+		
+
+			{% if request.method == 'POST' %}
+			<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						{% for reply in replied_answer %}
+							{{ replied_answer }}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			{% endif %}
+
+
+
+
+
+			{% if request.method == 'POST' %}
+
+			<div class="container">
+					<div class="row mt-5">
+						<div class="col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-12 comments-main pt-4 rounded">
+
+
+
+							
+							{% for reply in replied_answer %}
+
+
+								
+							<ul class="p-0">
+								<li>
+									<div class="row comments mb-2">
+										<div class="col-md-2 col-sm-2 col-3 text-center user-img">
+											<img id="profile-photo" src="http://nicesnippets.com/demo/man01.png" class="rounded-circle" />
+										</div>
+										<div class="col-md-9 col-sm-9 col-9 comment rounded mb-2">
+											<h4 class="m-0"><a href="#">Jacks David</a></h4>
+											<time class="text-white ml-3">1 hours ago</time>
+											<like></like>
+											
+											<p class="mb-0 text-white">{{ reply['question'] }}</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+
+								
+			
+								<ul class="p-0">
+									<li>
+										<div class="row comments mb-2">
+											<div class="col-md-2 offset-md-2 col-sm-2 offset-sm-2 col-3 offset-1 text-center user-img">
+												<img id="profile-photo" src="http://nicesnippets.com/demo/man02.png" class="rounded-circle" />
+											</div>
+											<div class="col-md-7 col-sm-7 col-8 comment rounded mb-2">
+												<h4 class="m-0"><a href="#">Steve Alex</a></h4>
+												<time class="text-white ml-3">1 week ago</time>
+												<like></like>
+												<p class="mb-0 text-white">{{ replied_answer['user_question'] }}</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</ul>
+
+							{% endfor %}
+
+			
+			{% endif %}
+			
+							
+							<div class="row comment-box-main p-3 rounded-bottom">
+								  <div class="col-md-9 col-sm-9 col-9 pr-0 comment-box">
+							    	<form method="POST" >
+									  <input type="text" class="form-control" placeholder="Ask ...." name="question" />
+								  </div>
+								  <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
+									  <button class="btn btn-info" type="submit" value="Submit" name="send" >Send</button>
+								  </div>
+
+								  
+								</form>
+								<div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
+									  <button class="btn btn-info" type="submit" value="Submit" name="send" >TESTSEND</button>
+								  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.14/vue.min.js'></script>
+  <script>
+    Vue.component('like', {
+	    template: "<div class='like-data float-right text-white'><button class='icon-rocknroll mr-1 p-0 border-0' v-class='active: liked' v-on='click: toggleLike'><i class='fa fa-thumbs-up text-white' aria-hidden='true'></i></button><span class='like-count' v-class='active: liked'>{{ likesCount }}</span></div>",
+	    data: function() {
+	        return {
+	            liked: false,
+	            likesCount: 0
+	        }
+	    },
+	    methods: {
+	        toggleLike: function() {
+	            this.liked = !this.liked;
+	            this.liked ? this.likesCount++ : this.likesCount--;
+	        }
+	    }
+	});
+	new Vue({
+	    el: '.comments-main',
+	});
+  </script>
+
+<script>
+
+
+$(document).ready(function() {
+       
+	   $("button[name='send']").click(function() {
+		   var domElement = $('<div class="container"><div class="row mt-5"><div class="col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-12 comments-main pt-4 rounded"><div class="col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-12 comments-main pt-4 rounded"><ul class="p-0"><li><div class="row comments mb-2"><div class="col-md-2 col-sm-2 col-3 text-center user-img"><img id="profile-photo" src="http://nicesnippets.com/demo/man01.png" class="rounded-circle" /></div><div class="col-md-9 col-sm-9 col-9 comment rounded mb-2"><h4 class="m-0"><a href="#">Jacks David</a></h4><time class="text-white ml-3">1 hours ago</time><like></like><p class="mb-0 text-white">b</p></div></div></li></ul><ul class="p-0"><li><div class="row comments mb-2"><div class="col-md-2 offset-md-2 col-sm-2 offset-sm-2 col-3 offset-1 text-center user-img"><img id="profile-photo" src="http://nicesnippets.com/demo/man02.png" class="rounded-circle" /></div><div class="col-md-7 col-sm-7 col-8 comment rounded mb-2"><h4 class="m-0"><a href="#">Steve Alexaaaa</a></h4><time class="text-white ml-3">1 week ago</time><like></like><p class="mb-0 text-white">a</p></div></div></li></ul></ul>');
+		   $(this).before(domElement);
+	   });
+	   
+   });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ARMAN SCRIPT -->
+
+
+<div class='container'>
+    <h3>Test</h3>
+        <form method="POST">
+			<a href=# id=test><button class="btn btn-info" type="submit" value="Submit">Test</button></a>
+
+            <!-- <a href=# id=test><button class='btn btn-default'>Test</button></a> -->
+        </form>
+
+</div>
+
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#test').bind('click', function() {
+            $.getJSON('/background_process_test',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+
+
+
+
+<!-- ONE MORE TRY -->
+
+<script>
+	
+	$(document).ready(function() {
+       
+	   $('.add_more').on('click',(function() {
+		   $('.wrapper').append('<div class="col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-12 comments-main pt-4 rounded"><ul class="p-0"><li><div class="row comments mb-2"><div class="col-md-2 col-sm-2 col-3 text-center user-img"><img id="profile-photo" src="http://nicesnippets.com/demo/man01.png" class="rounded-circle" /></div><div class="col-md-9 col-sm-9 col-9 comment rounded mb-2"><h4 class="m-0"><a href="#">Jacks David</a></h4><time class="text-white ml-3">1 hours ago</time><like></like><p class="mb-0 text-white">b</p></div></div></li></ul><ul class="p-0"><li><div class="row comments mb-2"><div class="col-md-2 offset-md-2 col-sm-2 offset-sm-2 col-3 offset-1 text-center user-img"><img id="profile-photo" src="http://nicesnippets.com/demo/man02.png" class="rounded-circle" /></div><div class="col-md-7 col-sm-7 col-8 comment rounded mb-2"><h4 class="m-0"><a href="#">Steve Alexaaaa</a></h4><time class="text-white ml-3">1 week ago</time><like></like><p class="mb-0 text-white">a</p></div></div></li></ul></ul>')});
+	});
+
+</script>
+
+
+
+
+<!-- ONE MORE TRY -->
+<script>
+
+	context.sendResponse(event.message);
+
+
+	function MessageHandler(context, event) { 
+    if(event.message == "hi") { 
+        context.sendResponse("Hello!"); 
+    } 
+    else if (event.message == "hello") {
+        context.sendResponse("How are you doing " + event.sender + " ?");
+    } 
+    else { 
+        context.sendResponse('No keyword found : '+event.message); 
+    } 
+}
+
+</script>
+
+
+
+
+</html>
