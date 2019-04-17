@@ -4,11 +4,7 @@ from urllib.request import FancyURLopener
 import pyttsx3
 import requests
 import threading
-<<<<<<< HEAD
-import pyaudio
-=======
-import sys
->>>>>>> ac2e569060aeb44d3b043d70467949fb761da7f8
+
 
 # Takes Type input
 def typeCommand(command):
