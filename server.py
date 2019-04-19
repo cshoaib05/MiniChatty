@@ -3,8 +3,6 @@ import requests
 import json
 import calendar
 from core import Classify
-
-
 from gtts import gTTS
 import speech_recognition as sr
 from urllib.request import FancyURLopener
@@ -26,6 +24,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    # Classify.facerec()
 
    
 
@@ -40,8 +39,8 @@ def index():
 
             answer = Classify.classifyCommand(question)
             # print(question)
-            answer = answer.split(',')[0]
-            answer = answer.replace("'","").replace('(','')
+            # answer = answer.split(',')[0]
+            # answer = answer.replace("'","").replace('(','')
 
             answer_list.append(answer)
 

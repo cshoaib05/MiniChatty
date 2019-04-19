@@ -2,6 +2,7 @@ from . import Listen
 from . import APIs
 from . import DB
 import sys
+from . import ReadyFace
 from . import SentimentAnalysis
 from nltk.tokenize import sent_tokenize, word_tokenize
 
@@ -54,6 +55,10 @@ def classifyListenCommand():
     #     #return("BOT:"+ str(answers[i]))
     #     return(commands, str(answers[i]))
 
+
+def facerec():
+    ReadyFace.takephoto()
+    
 
 def processCommands(commands):
 
@@ -112,6 +117,7 @@ def processCommands(commands):
 
 
 if __name__ == "__main__":
+    MainFaceRecognition.takephoto()
     while(True):
         classifyCommand(command)
 
