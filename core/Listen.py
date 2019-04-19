@@ -4,6 +4,7 @@ from urllib.request import FancyURLopener
 import pyttsx3
 import requests
 import threading
+import os
 
 
 # Takes Type input
@@ -13,6 +14,10 @@ def typeCommand(command):
     if check:
         command1 = command.replace('zero',"")
         return command1
+
+    if "tab" in command:
+        os.system('nircmd sendkeypress alt+tab')
+
     else:
         return ""
 
