@@ -34,11 +34,15 @@ def index():
         if request.form['question'] != 'NULL':
             qanda = {}
             question = request.form['question']
+            question = question.lower()
 
             question_list.append(question)
 
             answer = Classify.classifyCommand(question)
             # print(question)
+            answer = answer.split(',')[0]
+            answer = answer.replace("'","").replace('(','')
+
             answer_list.append(answer)
 
             qanda.update({question:answer})
@@ -65,7 +69,7 @@ def contact():
 
 
 # //background process happening without any refreshing
-@app.route('/', methods=['GET', 'POST'])
+# @app.route('/', methods=['GET', 'POST'])
 @app.route('/background_process_test')
 def background_process_test():
     
