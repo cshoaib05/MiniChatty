@@ -130,7 +130,10 @@ def predict(test_img):
 
         label, confidence = face_recognizer.predict(face)
         label_text = subjects[label]
-        print('Hello ' + label_text)
+        if confidence < 49:
+            print('Hello ' + label_text)
+        else:
+            print("Hello stranger")
         # draw_rectangle(img, rect)
         # draw_text(img, label_text, rect[0], rect[1]-5)
         print(confidence)

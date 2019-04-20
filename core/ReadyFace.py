@@ -38,6 +38,7 @@ def prephoto(test_img):
 		# draw_text(img, label_text, rect[0], rect[1]-5)
 		print(confidence)
 		if confidence < 40:
+			print(label,confidence)
 			return label
 		else:
 			print("IN ELSE")
@@ -80,3 +81,5 @@ def takephoto():
 
 
 
+if __name__ == '__main__':
+	takephoto()

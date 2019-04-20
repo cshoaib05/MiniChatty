@@ -10,16 +10,15 @@ import os
 # Takes Type input
 def typeCommand(command):
     #command = input("USER :")
-    check = command.startswith('zero')
-    if check:
-        command1 = command.replace('zero',"")
-        return command1
+    # check = command.startswith('zero')
+    # if check:
+    command1 = command.replace('zero',"")
+    return command1
 
     if "tab" in command:
         os.system('nircmd sendkeypress alt+tab')
 
-    else:
-        return ""
+
 
 
 
