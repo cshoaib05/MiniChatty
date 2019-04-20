@@ -48,6 +48,9 @@
 			{% if request.method == 'POST' %}
 
 			<div class="container">
+				<div class="header" style="text-align:center;margin-top: 15px; color: #CA1D5F; font-weight: bold;">
+					<h1>  Welcome to the Chatbot</h1>
+				</div>
 					<div class="row mt-5">
 						<div class="col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-12 comments-main pt-4 rounded">
 
@@ -63,7 +66,7 @@
 			
 								<ul class="p-0">
 									<li>
-										<div class="row comments mb-2">
+										<div class="row comments mb-2" id="comment">
 											<div class="col-md-2 offset-md-2 col-sm-2 offset-sm-2 col-3 offset-1 text-center user-img">
 												<img id="profile-photo" src="http://nicesnippets.com/demo/man02.png" class="rounded-circle" />
 											</div>
@@ -103,19 +106,17 @@
 			
 			{% endif %}
 			
-							
+							<div class="control-button">
 							<div class="row comment-box-main p-3 rounded-bottom">
 								  <div class="col-md-9 col-sm-9 col-9 pr-0 comment-box">
-								  	
 							    	<form method="POST" >
+												<button id= "test" class="btn btn-info " type="submit" value="Submit" name="send" style="font-size:15px;" >Voice <i class="fa fa-microphone"></i></button>
 									  <input type="text" class="form-control" placeholder="Ask ...." name="question" />
 								  </div>
 								  <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
-										<button class="btn btn-info" type="submit" value="Submit" name="send" >Send</button>
+										<button class="btn btn-info send-button" type="submit" value="Submit" name="send" >Send</button>
 								  </div>
-									<div class="col-md-3 col-sm-2 col-2 pl-0 text-center voice-btn">
-											<button id= "test" class="btn btn-info " type="submit" value="Submit" name="send" style="font-size:15px;" >Voice <i class="fa fa-microphone"></i></button>
-									</div>
+
 
 								  
 								</form>
@@ -134,8 +135,7 @@
 <!-- scroller script -->
 
 <script>
-	$(".container").animate({ scrollDown: $(document).height() }, "slow");
-  return false;
+$('#comment').scrollTop($('#comment')[0].scrollHeight);
 </script>
 
 <!-- ARMAN SCRIPT -->

@@ -2,14 +2,13 @@ body{
   font-family: 'Raleway', sans-serif;
   background: #E9ECE9;
   margin-bottom: 50px;
-
-
 }
+
 .comments-main{
   background: #FFF;
+  max-width: 600px;
+  max-height: 500px;
   overflow-y: scroll;
-  max-width: 500px;
-  max-height: 550px;
 
   
 }
@@ -55,6 +54,7 @@ body{
 }
 .comments .comment p {
   font-size: 13px;
+  margin-left: 30px;
 }
 .comments .comment p .reply {
   color: #BFBFA8;
@@ -76,6 +76,15 @@ body{
   background: #CA1D5F;
   
 }
+.control-button{
+  position: relative;
+}
+.comment-box-main .form-control{
+  float: right;
+  margin-right: 1px;
+  width: 270px;
+  
+}
 @media (min-width: 320px) and (max-width: 480px){
   .comments .comment h4 {
     font-size: 12px;
@@ -83,13 +92,8 @@ body{
   .comments .comment p{
     font-size: 11px;
     margin-bottom: 5px;
+    margin-left: 30px;
   }
-  .comment-box-main .send-btn button{
-    margin-left: 5px;
-  }
-  .comment-box-main .sed.btn .voice-btn button{
-    float: center;
-    margin-top: 5px;
-  }
+  
   
 }
